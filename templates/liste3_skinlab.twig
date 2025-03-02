@@ -1,0 +1,62 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+<div class="content-with-aside">
+    <aside>
+        <h3>Filtrer les produits</h3>
+        <form action="liste3_skinlab.php" method="GET">
+            <h4>Catégorie:</h4>
+            <ul>
+                {% for categorie in categories %}
+                <li>
+                    <input type="checkbox" name="categorie[]" id="categorie{{ categorie.id_categorie }}"
+                        value="{{ categorie.id_categorie }}">
+                    <label for="categorie{{ categorie.id_categorie }}">{{ categorie.nom_categorie }}</label>
+                </li>
+                {% endfor %}
+            </ul>
+            <h4>Type de peau:</h4>
+            <ul>
+                {% for type_peau in types_peau %}
+                <li>
+                    <input type="checkbox" name="type_peau[]" id="peau_{{ type_peau.id_type }}"
+                        value="{{ type_peau.id_type }}">
+                    <label for="peau_{{ type_peau.id_type }}">{{ type_peau.nom_type }}</label>
+                </li>
+                {% endfor %}
+            </ul>
+            <button type="submit">Filtrer</button>
+            <div class="bouton-retour">
+                <a href="liste3_skinlab.php">Retour vers Tous les produits Skin&Lab</a>
+            </div>
+            <div class="bouton-retour1">
+                <a href="liste_marques.php">Retour vers Marques</a>
+            </div>
+        </form>
+    </aside>
+
+    <div class="main-content">
+        <h2>Liste des produits de la marque Skin&Lab</h2>
+        <p>Skin&Lab permet d’obtenir une peau en meilleure santé et plus éclatante grâce à des produits revitalisants élaborés à
+        partir d’ingrédients naturels.
+        La marque développe des produits hypoallergéniques approuvés par les dermatologues, dont notamment ses produits les plus
+        vendus. Les produits sont non testés sur les animaux et entièrement fabriqués en Corée</p>
+        <h4>Nombre d'articles trouvés : {{ articles_skinlab|length }}</h4>
+        <div class="articles-container">
+            {% set displayed_articles = [] %}
+            {% for article in articles_skinlab %}
+            {% if article.id_article not in displayed_articles %}
+            {% set displayed_articles = displayed_articles|merge([article.id_article]) %}
+            <div class="articles_vignette">
+                <p class="article-texte">{{ article.nom_article }}</p>
+                <img src="{{ article.image }}" alt="{{ article.nom_article }}">
+                <div class="bouton-detail">
+                    <p><a href="detail3_skinlab.php?id={{ article.id_article }}">Voir détail</a></p>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.twig' %}
+
+
+{% block main %}
+<h2>Liste des marques</h2>
+<p>
+Explorez notre sélection soigneusement choisie de marques de confiance, chacune offrant des produits de haute qualité
+pour répondre à une variété de besoins de soins de la peau. Que vous recherchiez des formules naturelles, des
+ingrédients innovants ou des solutions ciblées pour des préoccupations spécifiques de la peau, nous avons ce qu'il vous
+faut.</p>
+<nav>
+    <ul class="categories1">
+        <li class="categorie1_vignette">
+            <div class="overlay">
+                <img class="center-image" src="images/beauty.jpg" alt="Beauty of Joseon">
+                <div class="text"><a href="liste3_beauty.php">Beauty of Joseon</a></div>
+            </div>
+        </li>
+        <li class="categorie1_vignette">
+            <div class="overlay">
+                <img class="center-image" src="images/frudia.jpg" alt="Frudia">
+                <div class="text"><a href="liste3_frudia.php">Frudia</a></div>
+            </div>
+        </li>
+        <li class="categorie1_vignette">
+            <div class="overlay">
+                <img class="center-image" src="images/skinlab.jpg" alt="Skinlab">
+                <div class="text"><a href="liste3_skinlab.php">Skinlab</a></div>
+            </div>
+        </li>
+    </ul>
+</nav>
+{% endblock %}

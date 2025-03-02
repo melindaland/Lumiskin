@@ -1,0 +1,25 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+<h2>Votre Panier</h2>
+<div class="panier-container">
+    <div class="articles">
+        {% if articles %}
+        {% for article in articles %}
+        <div class="article">
+            <h3>{{ article.nom_article }}</h3>
+            <img src="{{ article.image }}" alt="{{ article.nom_article }}">
+            <p>Prix : {{ article.prix_article }}€</p>
+            <a href="supprimer-panier.php?id={{ article.id_article }}">Supprimer</a>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>Votre panier est vide.</p>
+        {% endif %}
+    </div>
+    <div class="total">
+        <h3>Total : {{ total }}€</h3>
+        <div class="bouton-retour"><a href="valider-panier.php">Valider la commande</a></div>
+    </div>
+</div>
+{% endblock %}

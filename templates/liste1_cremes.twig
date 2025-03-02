@@ -1,0 +1,61 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+<div class="content-with-aside">
+    <aside>
+        <h3>Filtrer les produits</h3>
+        <form action="liste1_cremes.php" method="GET">
+            <h4>Marque:</h4>
+            <ul>
+                {% for marque in marques %}
+                <li>
+                    <input type="checkbox" name="marque[]" id="marque{{ marque.id_marque }}"
+                        value="{{ marque.id_marque }}">
+                    <label for="marque{{ marque.id_marque }}">{{ marque.nom_marque }}</label>
+                </li>
+                {% endfor %}
+            </ul>
+            <h4>Type de peau:</h4>
+            <ul>
+                {% for type_peau in types_peau %}
+                <li>
+                    <input type="checkbox" name="type_peau[]" id="peau_{{ type_peau.id_type }}"
+                        value="{{ type_peau.id_type }}">
+                    <label for="peau_{{ type_peau.id_type }}">{{ type_peau.nom_type }}</label>
+                </li>
+                {% endfor %}
+            </ul>
+            <button type="submit">Filtrer</button>
+            <div class="bouton-retour">
+                <a href="liste1_cremes.php">Retour vers Tous les crèmes</a>
+            </div>
+            <div class="bouton-retour1">
+                <a href="liste_produits.php">Retour vers Tous les Produits</a>
+            </div>
+        </form>
+    </aside>
+
+    <div class="main-content">
+        <h2>Liste des Crèmes</h2>
+        <p>Prenez soin de votre peau comme elle le mérite avec notre gamme exclusive de crèmes de soin. Chaque peau est unique,
+        c'est pourquoi nos crèmes sont formulées avec des ingrédients naturels et efficaces pour répondre aux besoins
+        spécifiques de votre peau.</p>
+        {% if articles_cremes|length > 0 %}
+        <h4>Nombre d'articles trouvés : {{ articles_cremes|length }}</h4>
+        <div class="articles-container">
+            {% for article in articles_cremes %}
+            <div class="articles_vignette">
+                <p class="article-texte"> {{ article.nom_article }}</p>
+                <img src="{{ article.image }}" alt="{{ article.nom_article }}">
+                <div class="bouton-detail">
+                    <a href="detail1_cremes.php?id={{ article.id_article }}">Voir détail</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>Aucun article trouvé dans la catégorie "Crème".</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

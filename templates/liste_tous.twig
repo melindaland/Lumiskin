@@ -1,0 +1,70 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+<div class="content-with-aside">
+    <aside>
+        <h3>Filtrer les produits</h3>
+        <form action="liste_tous.php" method="GET">
+            <h4>Marque:</h4>
+            <ul>
+                {% for marque in marques %}
+                <li>
+                    <input type="checkbox" name="marque[]" id="marque{{ marque.id_marque }}"
+                        value="{{ marque.id_marque }}">
+                    <label for="marque{{ marque.id_marque }}">{{ marque.nom_marque }}</label>
+                </li>
+                {% endfor %}
+            </ul>
+            <h4>Type de peau:</h4>
+            <ul>
+                {% for type_peau in types_peau %}
+                <li>
+                    <input type="checkbox" name="type_peau[]" id="peau_{{ type_peau.id_type }}"
+                        value="{{ type_peau.id_type }}">
+                    <label for="peau_{{ type_peau.id_type }}">{{ type_peau.nom_type }}</label>
+                </li>
+                {% endfor %}
+            </ul>
+        <h4>Catégorie:</h4>
+        <ul>
+            {% for categorie in categories %}
+            <li>
+                <input type="checkbox" name="categorie[]" id="categorie{{ categorie.id_categorie }}"
+                    value="{{ categorie.id_categorie }}">
+                <label for="categorie{{ categorie.id_categorie }}">{{ categorie.nom_categorie }}</label>
+            </li>
+            {% endfor %}
+        </ul>
+            <button type="submit">Filtrer</button>
+            <div class="bouton-retour">
+                <a href="liste_tous.php">Retour vers Tous les produits</a>
+            </div>
+        </form>
+    </aside>
+    <div class="main-content">
+        <h2>Liste de tous les articles présents sur le site</h2>
+        <p>Sur cette page, vous trouverez une vaste sélection de nos produits disponibles, allant des crèmes hydratantes aux
+        masques revitalisants, en passant par les sérums nourrissants et bien plus encore.</p>
+        {% if articles_tous|length > 0 %}
+        <h4>Nombre d'articles trouvés: {{ articles_tous|length }}</h4>
+        <div class="articles-container">
+            {% for article in articles_tous %}
+            <div class="articles_liste">
+                <div class="liste">
+                    <img src="{{ article.image }}" alt="{{ article.nom_article }}">
+                    
+                </div>
+                <div class="bouton-detail">
+                    <p class="article-texte">{{ article.nom_article }}</p>
+                    <p>{{ article.description_article }}</p>
+                    <a href="detail_tous.php?id={{ article.id_article }}">Voir détail</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>Aucun article trouvé.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

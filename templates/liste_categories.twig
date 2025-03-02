@@ -1,0 +1,31 @@
+{% extends 'base.twig' %}
+
+
+{% block main %}
+<h2>Liste de catégorie par type d'utilisation</h2>
+<p>Pour simplifier votre expérience de magasinage, nous avons organisé nos produits en trois catégories principales :
+mains, corps et visage. Chaque catégorie propose une sélection soigneusement choisie de produits adaptés à des besoins
+spécifiques.</p>
+<nav>
+	<ul class="categories1">
+		<li class="categorie1_vignette">
+			<div class="overlay">
+				<img class="center-image" src="images/visage.jpg" alt="Visage">
+				<div class="text"><a href="liste2_visage.php">Visage</a></div>
+			</div>
+		</li>
+		<li class="categorie1_vignette">
+			<div class="overlay">
+				<img class="center-image" src="images/corps.jpg" alt="Corps">
+				<div class="text"><a href="liste2_corps.php">Corps</a></div>
+			</div>
+		</li>
+		<li class="categorie1_vignette">
+			<div class="overlay">
+				<img class="center-image" src="images/mains.jpg" alt="Mains">
+				<div class="text"><a href="liste2_mains.php">Mains</a></div>
+			</div>
+		</li>
+	</ul>
+</nav>
+{% endblock %}

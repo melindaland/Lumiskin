@@ -1,0 +1,37 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+<h2>Liste d'article par type de produits</h2>
+<p>Nous sommes fiers de vous offrir une large gamme de produits de soins de la peau, adaptés à chaque besoin spécifique.
+Que vous cherchiez des crèmes hydratantes, des masques revitalisants, des baumes apaisants ou des sérums puissants, nous
+avons tout ce qu'il vous faut pour révéler votre beauté naturelle. Explorez notre collection et découvrez des solutions
+sur mesure pour chaque type de peau et chaque objectif de soin.</p>
+<nav>
+    <ul class="categories2">
+        <li class="categorie2_vignette">
+            <div class="overlay">
+                <img  class="center-image" src="images/cremes.jpg" alt="Crèmes">
+                <div class="text"><a href="liste1_cremes.php">Crèmes</a></div>
+            </div>
+        </li>
+        <li class="categorie2_vignette">
+            <div class="overlay"> 
+                <img class="center-image" src="images/masques.jpg" alt="Masques">
+                <div class="text"><a href="liste1_masques.php">Masques</a></div>
+            </div>
+        </li>
+        <li class="categorie2_vignette">
+            <div class="overlay">
+                <img class="center-image" src="images/baumes.jpg" alt="Baumes">
+                <div class="text"><a href="liste1_baumes.php">Baumes</a></div>
+            </div>
+        </li>
+        <li class="categorie2_vignette">
+            <div class="overlay">
+                <img class="center-image" src="images/serums.jpg" alt="Sérums">
+                <div class="text"><a href="liste1_serums.php">Sérums</a></div>
+            </div>
+        </li>
+    </ul>
+</nav>
+{% endblock %}

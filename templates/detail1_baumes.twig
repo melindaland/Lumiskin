@@ -1,0 +1,64 @@
+{% extends 'base.twig' %}
+{% block main %}
+<h2>Détails de l'article "{{ article.nom_article }}"</h2>
+<div class="details-container">
+    <div class="info">
+        <div class="informations">
+            <h3>Informations</h3>
+            <p>Prix : {{ article.prix_article }}</p>
+            <p>Marque : {{ article.marque_article }}</p>
+            <p>Type : {{ article.type_article }}</p>
+        </div>
+        <div class="description">
+            <h3>Description</h3>
+            <p>{{ article.description_article }}</p>
+        </div>
+        <div class="ingredients">
+            <h3>Ingrédients</h3>
+            <ul>
+                {% for ingredient in article.ingredients %}
+                <li>{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+    <div class="image">
+        <img src="{{ article.image }}" alt="{{ article.nom_article }}">
+        <form action="ajout-panier.php" method="post">
+            <input type="hidden" name="article_id" value="{{ article.id_article }}">
+            <button type="submit">Ajouter au panier</button>
+        </form>
+    </div>
+</div>
+
+
+<div class="commentaires">
+    <div class="commentaire">
+        <h3>Avis</h3>
+        <ul>
+            {% for commentaire in article.commentaires %}
+            <li>Le {{ commentaire.date }} - {{ commentaire.utilisateur }}</li>
+            <p>{{ commentaire.commentaire }}</p>
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for nouveau_commentaire in article.nouveau_commentaires %}
+            <li>Le {{ nouveau_commentaire.datee }} - {{ nouveau_commentaire.name }}</li>
+            <p>{{ nouveau_commentaire.comment }}</p>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="ajout-commentaire">
+        <h3>Ajouter un commentaire :</h3>
+        <form action="ajout-commentaire.php" method="post">
+            <input type="hidden" name="article_id" value="{{ article.id_article }}">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="comment">Commentaire</label>
+            <textarea id="comment" name="comment" required></textarea><br>
+            <button type="submit" name="submit_commentaire">Ajouter un commentaire</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

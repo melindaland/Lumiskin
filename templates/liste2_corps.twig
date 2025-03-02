@@ -1,0 +1,64 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+<div class="content-with-aside">
+    <aside>
+        <h3>Filtrer les produits</h3>
+        <form action="liste2_corps.php" method="GET">
+            <h4>Marque:</h4>
+            <ul>
+                {% for marque in marques %}
+                <li>
+                    <input type="checkbox" name="marque[]" id="marque{{ marque.id_marque }}"
+                        value="{{ marque.id_marque }}">
+                    <label for="marque{{ marque.id_marque }}">{{ marque.nom_marque }}</label>
+                </li>
+                {% endfor %}
+            </ul>
+            <h4>Type de peau:</h4>
+            <ul>
+                {% for type_peau in types_peau %}
+                <li>
+                    <input type="checkbox" name="type_peau[]" id="peau_{{ type_peau.id_type }}"
+                        value="{{ type_peau.id_type }}">
+                    <label for="peau_{{ type_peau.id_type }}">{{ type_peau.nom_type }}</label>
+                </li>
+                {% endfor %}
+            </ul>
+            <button type="submit">Filtrer</button>
+            <div class="bouton-retour">
+                <a href="liste2_corps.php">Retour vers Tous les produits pour corps</a>
+            </div>
+            <div class="bouton-retour1">
+                <a href="liste_categories.php">Retour vers Toutes les catégories</a>
+            </div>
+        </form>
+    </aside>
+
+    <div class="main-content">
+        <h2>Liste des articles de la catégorie Corps</h2>
+        <p>Gommage, baume pour le corps, huile et crème hydratante, vous trouverez gamme de soins pour le corps aux inspirations
+        coréennes destinée à prendre soin de vous et de votre peau.</p>
+        {% if articles_corps|length > 0 %}
+        <h4>Nombre d'articles trouvés: {{ articles_corps|length }}</h4>
+        <div class="articles-container">
+            {% for article in articles_corps %}
+            <div class="articles_liste">
+                <div class="liste">
+                <img src="{{ article.image }}" alt="{{ article.nom_article }}">
+            
+                </div>
+                <div class="bouton-detail">
+                    <p class="article-texte">{{ article.nom_article }}</p>
+                    <p>{{ article.description_article }}</p>
+                    <a href="detail2_corps.php?id={{ article.id_article }}">Voir détail</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>Aucun article trouvé dans la catégorie "Corps".</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
