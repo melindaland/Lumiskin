@@ -1,0 +1,913 @@
+/************************/
+/* PROPRIÉTÉS GÉNÉRALES */
+/************************/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.1em;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F5EEEA;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 100%;
+    max-width: 1500px;
+    background-color: white;
+    padding: 20px 100px;
+    margin: 10px auto;
+}
+
+h1 {
+    font-family: "Asap", sans-serif;
+    font-size: 30px;
+    color: #B36A5E;
+
+}
+
+h2 {
+    font-family: "Changa", sans-serif;
+    color: #392E2C;
+}
+
+h3 {
+    font-family: "Changa", sans-serif;
+    color: #EED7C5;
+    font-weight: 600;
+    font-style: italic;
+}
+
+h4 {
+    font-family: "Asap", sans-serif;
+    color: #fff;
+    font-weight: 600;
+}
+
+p {
+    font-family: "Asap", sans-serif;
+    color: #392E2C;
+}
+
+a {
+    text-decoration: none;
+}
+
+/***************/
+/* HEADER */
+/***************/
+
+/* Bannière + le logo de la marque */
+.banniere {
+    width: 100%;
+    display: block;
+}
+
+header {
+    background-color: #392E2C;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1500px;
+}
+
+/***************/
+/* MENU DE NAVIGATION */
+/***************/
+.menu ul {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    gap: 100px;
+    list-style-type: none;
+    font-family: "Changa", sans-serif;
+    font-weight: 500;
+    font-size: larger;
+}
+
+.menu ul li {
+    padding: 10px 20px;
+}
+
+.menu ul a {
+    position: relative;
+    color: #EED7C5;
+    transition: font-size 0.3s ease-in-out;
+}
+
+/* Traits en dessous de chaque catégorie */
+.menu ul a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: #EED7C5;
+    transition: width 0.3s ease-in-out;
+}
+
+.menu ul a:hover::after {
+    width: 100%;
+}
+
+.menu ul a:hover {
+    transform: scale(1.2);
+}
+
+/* Bannière de promotions */
+.promo-banner {
+    width: 100%;
+    height: 35px;
+    background-color: #CA7C5C;
+    overflow: hidden;
+    position: relative;
+}
+
+.promo-content {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    animation: scroll 50s linear infinite;
+}
+
+.promo-content p {
+    font-size: 20px;
+    font-family: "Asap", sans-serif;
+    font-weight: 600;
+    color: white;
+    margin: 5px;
+}
+
+.promo-content i {
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+/* Animation de la bannière de promotions */
+@keyframes scroll {
+    from {
+        transform: translateX(-110%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+/**************************/
+/* PAGE D'ACCEUIL DU MAIN */
+/**************************/
+.bouton-fleche {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bouton-fleche figure {
+    position: relative;
+}
+
+.center-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #B36A5E;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center-button i {
+    font-size: 60px;
+    color: #CA7C5C;
+    background-color: white;
+}
+
+.center-button:hover {
+    width: 160px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: #B36A5E;
+    transition: 0.3s ease-in-out;
+}
+
+.center-button:hover i {
+    color: #B36A5E;
+    background-color: #B36A5E;
+}
+
+.center-button::before {
+    position: absolute;
+    content: "Découvrir tous nos produits";
+    text-align: center;
+    color: white;
+    font-size: 1px;
+}
+
+.center-button:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    bottom: unset;
+    transition-duration: 0.3s;
+}
+
+/************************************************/
+/* LISTES DES SOUS-MENUS POOUR CHAQUE CATÉGORIE */
+/************************************************/
+.categories1,
+.categories2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    width: 100%;
+}
+
+.categorie1_vignette,
+.categorie2_vignette {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    opacity: 0;
+    animation: slide 1.2s forwards;
+}
+
+.categorie1_vignette {
+    width: 300px;
+}
+
+.categorie2_vignette {
+    width: 210px;
+}
+
+.categorie1_vignette img,
+.categorie2_vignette img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Transitions quand on passe la souris par dessus les images */
+.categorie1_vignette:hover img,
+.categorie2_vignette:hover img {
+    filter: blur(10px);
+}
+
+.categorie1_vignette .overlay,
+.categorie2_vignette .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.categorie1_vignette .text,
+.categorie2_vignette .text {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.categorie1_vignette:hover .text,
+.categorie2_vignette:hover .text {
+    opacity: 1;
+}
+
+.categorie1_vignette .text a,
+.categorie2_vignette .text a {
+    color: white;
+    text-decoration: none;
+    font-family: "Changa", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.categorie1_vignette .text a:hover,
+.categorie2_vignette .text a:hover {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+/* Animations : Glissement vers la droite des images */
+@keyframes slide {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/******************************/
+/* ASIDE ET MAIN DES PRODUITS */
+/******************************/
+.main-content {
+    width: 80%;
+    padding: 20px;
+}
+
+.main-content h4 {
+    font-family: "Asap", sans-serif;
+    color: #B36A5E;
+    font-weight: 800;
+}
+
+.content-with-aside {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+aside {
+    border-radius: 10px;
+    width: 20%;
+    padding: 20px;
+    background-color: #B36A5E;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 50px;
+    margin-bottom: auto;
+}
+
+aside h3 {
+    margin-bottom: 20px;
+}
+
+aside ul {
+    font-family: "Asap", sans-serif;
+    list-style: none;
+    text-align: start;
+    font-size: 16px;
+
+}
+
+aside a:hover {
+    color: #392E2C;
+}
+
+aside form {
+    display: flex;
+    flex-direction: column;
+}
+
+.bouton-retour {
+    background-color: #EED7C5;
+}
+
+.bouton-retour1 {
+    background-color: #C89F9C;
+}
+
+button[type="submit"] {
+    background-color: #CA7C5C;
+}
+
+button[type="submit"],
+.bouton-retour,
+.bouton-retour1 {
+    font-family: "Changa", sans-serif;
+    font-size: small;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    transition: background-color 0.1s ease-in-out;
+}
+
+button[type="submit"]:hover,
+.bouton-retour1:hover,
+.bouton-retour:hover {
+    background-color: #B36A5E;
+    color: white;
+}
+
+.bouton-retour1 a:visited,
+.bouton-retour a:visited {
+    color: black;
+}
+
+.article-texte {
+    font-size: 15px;
+    font-weight: 600;
+    color: #CA7C5C;
+    font-family: "Changa", sans-serif;
+
+}
+
+/**********************/
+/* Produits VIGNETTES */
+/**********************/
+.articles-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.articles_vignette h3 {
+    margin-top: 5px;
+    font-size: medium;
+    color: #392E2C;
+}
+
+.articles_vignette {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EEE2DF;
+    width: 250px;
+    height: 300px;
+    margin: 5px;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    /* Animation pour les vignettes */
+    transition: opacity 5s ease, transform 5s ease;
+}
+
+.articles_vignette img {
+    margin-top: auto;
+    width: 60%;
+    transition: transform 0.3s ease;
+}
+
+/* Transition au survol de l'image */
+.articles_vignette img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0px 0px 10px white);
+}
+
+/* Bouton de chaque vignette */
+.bouton-detail a {
+    padding: 5px 15px;
+    background-color: #CA7C5C;
+    color: white;
+    font-family: "Changa", sans-serif;
+    font-size: 10px;
+    font-style: italic;
+    transition: transform 0.3s ease;
+}
+
+.bouton-detail a:hover {
+    background-color: #EEE2DF;
+    color: #392E2C;
+}
+
+.bouton-detail {
+    margin-top: auto;
+}
+
+/* Animation pour faire apparaître les vignettes une par une */
+@keyframes appearAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.articles_vignette:nth-child(1) {
+    animation: appearAnimation 2s ease 0.1s forwards;
+}
+
+.articles_vignette:nth-child(2) {
+    animation: appearAnimation 2s ease 0.2s forwards;
+}
+
+.articles_vignette:nth-child(3) {
+    animation: appearAnimation 2s ease 0.3s forwards;
+}
+
+.articles_vignette:nth-child(4) {
+    animation: appearAnimation 2s ease 0.4s forwards;
+}
+
+.articles_vignette:nth-child(5) {
+    animation: appearAnimation 2s ease 0.5s forwards;
+}
+
+.articles_vignette:nth-child(6) {
+    animation: appearAnimation 2s ease 0.6s forwards;
+}
+
+.articles_vignette:nth-child(7) {
+    animation: appearAnimation 2s ease 0.7s forwards;
+}
+
+.articles_vignette:nth-child(8) {
+    animation: appearAnimation 2s ease 0.8s forwards;
+}
+
+.articles_vignette:nth-child(9) {
+    animation: appearAnimation 2s ease 0.9s forwards;
+}
+
+.articles_vignette:nth-child(10) {
+    animation: appearAnimation 2s ease 0.10s forwards;
+}
+
+.articles_vignette:nth-child(11) {
+    animation: appearAnimation 2s ease 0.12s forwards;
+}
+
+.articles_vignette:nth-child(12) {
+    animation: appearAnimation 2s ease 0.12s forwards;
+}
+
+/******************/
+/* Produits LISTE */
+/******************/
+
+.articles_liste {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #EEE2DF;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    text-align: start;
+    gap: 5px;
+    font-size: small;
+    transition: background-color 0.3s ease;
+    /* Transition pour la couleur de fond */
+}
+
+.articles_liste img {
+    padding: 10px;
+    width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.articles_liste img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0px 0px 10px white);
+}
+
+.articles_liste:hover {
+    background-color: #CA7C5C;
+}
+
+.article-texte {
+    color: #392E2C;
+}
+
+.bouton-detail,
+.articles_liste p {
+    text-align: start;
+    margin-bottom: 15px;
+}
+
+/************************/
+/* DÉTAILS DES PRODUITS */
+/************************/
+.details-container {
+    background-color: #EEE2DF;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 20px;
+    border-radius: 20px;
+    width: 1200px;
+}
+
+.details-container h3 {
+    color: #392E2C
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+    font-size: small;
+
+}
+
+.informations {
+    background-color: #B36A5E;
+    width: 400px;
+    padding-right: 20px;
+    text-align: end;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.ingredients {
+    background-color: #C89F9C;
+    text-align: end;
+    padding-right: 20px;
+    width: 200px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.ingredients ul {
+    list-style: none;
+    color: #392E2C;
+    font-family: "Asap", sans-serif;
+}
+
+.ingredients ul li {
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #EED7C5;
+    background-color: #CA7C5C;
+    padding-right: 20px;
+    width: 600px;
+    height: auto;
+    text-align: end;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.description p {
+    margin-left: 5px;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 20px;
+}
+
+.image img {
+    padding-left: 200px;
+    width: 100%;
+    filter: drop-shadow(0px 0px 10px white);
+}
+
+.image button {
+    margin-left: 285px;
+    font-style: normal;
+}
+
+.commentaires h3 {
+    text-align: center;
+}
+
+.commentaires {
+    font-size: small;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    border-radius: 20px;
+    gap: 30px;
+}
+
+.commentaire {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #EED7C5;
+
+}
+
+.commentaire h3 {
+    color: #392E2C
+}
+
+.commentaire li {
+    color: #392E2C;
+    font-weight: bold;
+    list-style: none;
+}
+
+.commentaire p {
+    font-style: italic;
+    color: #CA7C5C;
+    font-weight: lighter;
+}
+
+.ajout-commentaire label,
+.ajout-commentaire h3 {
+    color: #EED7C5;
+    font-style: italic;
+}
+
+.commentaire ul p {
+    border-bottom: 1px solid #392E2C;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.ajout-commentaire {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #B36A5E;
+}
+
+.ajout-commentaire form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+}
+
+.ajout-commentaire form label,
+.ajout-commentaire form input,
+.ajout-commentaire form textarea,
+.ajout-commentaire form button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.ajout-commentaire form button {
+    padding: 15px;
+    background-color: #392E2C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.ajout-commentaire form button:hover {
+    background-color: #EED7C5;
+    color: #392E2C;
+}
+
+/******************/
+/* PANIER */
+/******************/
+.panier-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #CA7C5C;
+    padding: 20px;
+}
+
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    width: 70%;
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.article h3 {
+    font-size: small;
+    color: #CA7C5C
+}
+
+.article p {
+    font-size: small;
+    color: #392E2C;
+    font-weight: bolder;
+}
+
+.article img {
+    width: 40%;
+}
+
+.article a {
+    text-decoration: none;
+    color: #B36A5E;
+    font-family: "Changa", sans-serif;
+}
+
+.total {
+    width: 30%;
+    text-align: center;
+}
+
+.total a {
+    font-family: "Changa", sans-serif;
+    text-decoration: none;
+    color: #392E2C;
+}
+
+.total .bouton-retour {
+    font-size: medium;
+    font-weight: 600;
+}
+
+/******************/
+/* FOOTER */
+/******************/
+footer {
+    width: 100%;
+    background-color: #EED7C5;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 120px;
+    gap: 100px;
+}
+
+.footer-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.footer-left img {
+    width: 200px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Image s'agrendit au survol */
+.footer-left img:hover {
+    transform: scale(1.2);
+}
+
+.social-icons i {
+    color: #CA7C5C;
+    font-size: 35px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons i:hover {
+    color: #392E2C;
+}
+
+.footer-right {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    margin-right: auto;
+}
+
+.footer-right li {
+    font-family: "Asap", sans-serif;
+    font-size: 15px;
+    list-style: none;
+    text-align: start;
+    gap:10px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-right a {
+    text-decoration: none;
+    color: #CA7C5C;
+    transition: 0.3s ease;
+    font-family: "Asap", sans-serif;
+    font-size: 12px;
+
+}
+
+.footer-right a:hover {
+    font-weight: 800;
+    text-decoration: underline;
+
+}
+
+footer p {
+    text-align: center;
+    font-size: small;
+
+}

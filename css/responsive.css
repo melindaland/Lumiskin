@@ -1,0 +1,474 @@
+/**************************************/
+/* RESPONSIVE POUR LES SOUS-CATÉGORIES */
+/**************************************/
+
+/* Pour une tablette de 960px */
+@media screen and (max-width: 960px) {
+    main {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .categorie1_vignette,
+    .categorie2_vignette {
+        width: 50%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .categories1,
+    .categories2 {
+        gap: 30px;
+    }
+
+    .categorie1_vignette .text a,
+    .categorie2_vignette .text a {
+        font-size: 24px;
+    }
+
+    .categorie1_vignette .text a:hover,
+    .categorie2_vignette .text a:hover {
+        font-size: 28px;
+    }
+}
+
+/* Pour un mobile de 600 */
+@media screen and (max-width: 600px) {
+
+    .categorie1_vignette,
+    .categorie2_vignette {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .categories1,
+    .categories2 {
+        gap: 20px;
+    }
+
+    .categorie1_vignette .text a,
+    .categorie2_vignette .text a {
+        font-size: 18px;
+    }
+
+    .categorie1_vignette .text a:hover,
+    .categorie2_vignette .text a:hover {
+        font-size: 22px;
+    }
+}
+
+
+/************************/
+/* RESPONSIVE VIGNETTES */
+/************************/
+
+/* Pour une tablette de 960px */
+@media only screen and (max-width: 960px) {
+    main {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .content-with-aside {
+        gap: 10px;
+    }
+
+    .main-content {
+        max-width: 100%;
+    }
+
+    aside {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+/* Pour un mobile de 600px */
+@media only screen and (max-width: 600px) {
+    main {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .content-with-aside {
+        gap: 10px;
+    }
+
+    .articles_vignette {
+        width: 100%;
+    }
+
+    .articles_vignette img {
+        width: 50%;
+    }
+}
+
+/************************/
+/* RESPONSIVE LISTE */
+/************************/
+
+/* Pour une tablette de 960px */
+@media only screen and (max-width: 960px) {
+    main {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .content-with-aside {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .articles_liste {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 15px;
+        margin: 5px;
+    }
+
+    .articles_liste img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .bouton-detail,
+    .articles_liste p {
+        margin: 10px;
+    }
+}
+
+/* Pour un mobile de 600px */
+@media only screen and (max-width: 600px) {
+    main {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .content-with-aside {
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .articles_liste {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 15px;
+        margin: 5px;
+    }
+
+    .articles_liste img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .bouton-detail,
+    .articles_liste p {
+        margin-bottom: 15px;
+    }
+}
+
+/************************/
+/* RESPONSIVE HEADER ET FOOTER */
+/************************/
+
+/* Pour une tablette de 960px */
+@media only screen and (max-width: 960px) {
+    header {
+        width: 100%;
+        padding: 0;
+    }
+
+    .banniere {
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu ul {
+        flex-wrap: wrap;
+        gap: 60px;
+        font-size: 20px;
+        margin: 0;
+    }
+
+    footer {
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 50px;
+    }
+
+    .footer-left,
+    .footer-right {
+        margin: 0 auto;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .promo-content p {
+        font-size: 16px;
+    }
+
+    .promo-content i {
+        font-size: 16px;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 10px;
+    }
+
+    .footer-left img {
+        width: 150px;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .footer-right ul {
+        padding: 0;
+    }
+}
+
+/* Pour un mobile de 600px */
+@media only screen and (max-width: 600px) {
+    header {
+        width: 100%;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+    }
+
+    .promo-banner {
+        height: 30px;
+    }
+
+    .promo-content {
+        flex-direction: row;
+        align-items: center;
+        animation: scroll 50s linear infinite;
+    }
+
+    .promo-content p,
+    .promo-content i {
+        font-size: small;
+    }
+
+    footer {
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 10px;
+    }
+
+    .footer-left img {
+        width: 150px;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .footer-right ul {
+        padding: 0;
+    }
+}
+
+/*****************/
+/* DETAILS D'UN PRODUIT*/
+/*****************/
+
+/* Pour une talette de 960px */
+@media screen and (max-width: 960px) {
+    main {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .details-container {
+        width: 100%;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+
+    }
+
+    .informations,
+    .ingredients,
+    .description {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .image {
+        width: 50%;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .image img {
+        width: 70%;
+        padding: 0;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .image button {
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+}
+
+/* Pour un mobile de 600px */
+@media screen and (max-width: 600px) {
+    main {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .details-container {
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        max-width: 100%;
+    }
+
+    .info {
+        padding: 0;
+        width: 100%;
+        margin: 0 0;
+
+    }
+
+    .informations,
+    .ingredients,
+    .description {
+        width: 100%;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 5px;
+
+        text-align: center;
+    }
+
+    .image {
+        width: 100%;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .image img {
+        width: 100%;
+    }
+
+    .image button {
+        margin-left: 0;
+        width: 50%;
+    }
+
+    .commentaires {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/***********/
+/* RESPONSIVE PANIER */
+/***********/
+
+/* Pour une tablette de 960px */
+@media screen and (max-width: 960px) {
+    main {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .panier-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .articles {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .article img {
+        width: 60%;
+    }
+
+    .total {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+/* Pour un mobile de 600px */
+@media screen and (max-width: 600px) {
+    main {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .panier-container {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .articles {
+        gap: 10px;
+    }
+
+    .article {
+        width: 100%;
+    }
+
+    .article img {
+        width: 30%;
+    }
+}

@@ -1,0 +1,352 @@
+/************************/
+/* PROPRIÉTÉS GÉNÉRALES */
+/************************/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.1em;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F5EEEA;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 100%;
+    max-width: 1500px;
+    background-color: white;
+    padding: 20px 100px;
+    margin: 10px auto;
+}
+
+h1 {
+    font-family: "Asap", sans-serif;
+    font-size: 30px;
+    color: #B36A5E;
+}
+
+h2 {
+    font-family: "Changa", sans-serif;
+    color: #392E2C;
+}
+
+h3 {
+    font-family: "Changa", sans-serif;
+    color: #EED7C5;
+    font-weight: 600;
+    font-style: italic;
+}
+
+h4 {
+    font-family: "Asap", sans-serif;
+    color: #fff;
+    font-weight: 600;
+}
+
+p {
+    font-family: "Asap", sans-serif;
+    color: #392E2C;
+}
+
+a {
+    text-decoration: none;
+}
+
+/************************/
+/* HEADER */
+/************************/
+header {
+    background-color: #392E2C;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1500px;
+}
+
+/*Bannière avec le logo du site*/
+.banniere {
+    width: 100%;
+    display: block;
+}
+
+/************************/
+/* MENU DE NAVIGATION */
+/************************/
+.menu ul {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    gap: 100px;
+    list-style-type: none;
+    font-family: "Changa", sans-serif;
+    font-weight: 500;
+    font-size: larger;
+}
+
+.menu ul li {
+    padding: 10px 20px;
+}
+
+.menu ul a {
+    position: relative;
+    color: #EED7C5;
+    transition: font-size 0.3s ease-in-out;
+}
+
+/* Traits en dessous de chaque liens du menu */
+.menu ul a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: #EED7C5;
+    transition: width 0.3s ease-in-out;
+}
+
+.menu ul a:hover::after {
+    width: 100%;
+}
+
+.menu ul a:hover {
+    transform: scale(1.2);
+}
+
+/************************/
+/* MAIN */
+/************************/
+.message {
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+.message h2 {
+    font-weight: bolder;
+    font-size: 30px;
+    color: #392E2C;
+}
+
+.message p {
+    font-weight: bolder;
+    font-style: italic;
+}
+
+/* Bouton pour le retour à la page d'acceuil */
+.button {
+    font-size: medium;
+    color: #392E2C;
+    list-style: none;
+    display: inline-block;
+    background-color: #EED7C5;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 2px solid #392E2C;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #CA7C5C;
+}
+
+.button a {
+    text-decoration: none;
+    color: #392E2C;
+}
+
+/******************/
+/* FOOTER */
+/******************/
+footer {
+    width: 100%;
+    background-color: #EED7C5;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 120px;
+    gap: 100px;
+}
+
+.footer-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.footer-left img {
+    width: 200px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Image s'agrendit au survol */
+.footer-left img:hover {
+    transform: scale(1.2);
+}
+
+.social-icons i {
+    color: #CA7C5C;
+    font-size: 35px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons i:hover {
+    color: #392E2C;
+}
+
+.footer-right {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    margin-right: auto;
+}
+
+.footer-right li {
+    font-family: "Asap", sans-serif;
+    font-size: 15px;
+    list-style: none;
+    text-align: start;
+    gap: 10px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-right a {
+    text-decoration: none;
+    color: #CA7C5C;
+    transition: 0.3s ease;
+    font-family: "Asap", sans-serif;
+    font-size: 12px;
+
+}
+
+.footer-right a:hover {
+    font-weight: 800;
+    text-decoration: underline;
+
+}
+
+footer p {
+    text-align: center;
+    font-size: small;
+
+}
+
+/************************/
+/* RESPONSIVE HEADER ET FOOTER */
+/************************/
+
+/* Pour une tablette de 960px */
+@media only screen and (max-width: 960px) {
+    header {
+        width: 100%;
+        padding: 0;
+    }
+
+    .menu ul {
+        flex-wrap: wrap;
+        gap: 60px;
+        font-size: 20px;
+        margin: 0;
+    }
+
+    footer {
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 50px;
+    }
+
+    .footer-left,
+    .footer-right {
+        margin: 0 auto;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .promo-content p {
+        font-size: 16px;
+    }
+
+    .promo-content i {
+        font-size: 16px;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 10px;
+    }
+
+    .footer-left img {
+        width: 150px;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .footer-right ul {
+        padding: 0;
+    }
+}
+
+/* Pour un mobile de 600px */
+@media only screen and (max-width: 600px) {
+    header {
+        width: 100%;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+    }
+
+    footer {
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 10px;
+    }
+
+    .footer-left img {
+        width: 150px;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .footer-right ul {
+        padding: 0;
+    }
+}
