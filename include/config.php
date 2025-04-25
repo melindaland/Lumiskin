@@ -4,6 +4,6 @@
 
 // Vous pouvez avoir des fichiers de configuration différents
 const DB_HOST = 'localhost';
-const DB_NAME = 'aland_sae203';
-const DB_LOGIN = 'aland';
-const DB_PASSWORD = 'Franco-96?';
+const DB_NAME = '';
+const DB_LOGIN = '';
+const DB_PASSWORD = '';
